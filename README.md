@@ -1,11 +1,11 @@
-# ![LOGO](logo.png) Amazon Elastic Container Service for Kubernetes MSP Connector
+# ![LOGO](logo.png) Amazon Elastic Container Service for Kubernetes **flow**ground Connector
 
 ## Description
 
-A generated MSP connector for the Amazon Elastic Container Service for Kubernetes API (version 2017-11-01).
+A generated **flow**ground connector for the Amazon Elastic Container Service for Kubernetes API (version 2017-11-01).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/eks/2017-11-01/swagger.json<br/>
-Generated at: 2019-05-07T11:15:52+03:00
+Generated at: 2019-05-07T17:35:28+03:00
 
 ## API Description
 
@@ -110,7 +110,7 @@ Supported authorization schemes:
 
 ## License
 
-flowground :- Telekom iPaaS / amazonaws-com-eks-connector<br/>
+**flow**ground :- Telekom iPaaS / amazonaws-com-eks-connector<br/>
 Copyright © 2019, [Deutsche Telekom AG](https://www.telekom.de)<br/>
 contact: flowground@telekom.de
 
