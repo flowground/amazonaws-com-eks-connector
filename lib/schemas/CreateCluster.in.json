@@ -1,0 +1,108 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "clientRequestToken": "1d2129a1-3d38-460a-9756-e5b91fddb951",
+                "name": "prod",
+                "resourcesVpcConfig": {
+                    "securityGroupIds": [
+                        "sg-6979fe18"
+                    ],
+                    "subnetIds": [
+                        "subnet-6782e71e",
+                        "subnet-e7e761ac"
+                    ]
+                },
+                "roleArn": "arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI",
+                "version": "1.10"
+            },
+            "properties": {
+                "clientRequestToken": {
+                    "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The unique name to give to your cluster.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "pattern": "^[0-9A-Za-z][A-Za-z0-9\\-_]*",
+                    "type": "string"
+                },
+                "resourcesVpcConfig": {
+                    "description": "The VPC subnets and security groups used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see <a href=\"http://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html\">Cluster VPC Considerations</a> and <a href=\"http://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html\">Cluster Security Group Considerations</a> in the <i>Amazon EKS User Guide</i>. You must specify at least two subnets. You may specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.",
+                    "properties": {
+                        "securityGroupIds": {
+                            "description": "Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you do not specify a security group, the default security group for your VPC is used.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "subnetIds": {
+                            "description": "Specify subnets for your Amazon EKS worker nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "subnetIds"
+                    ],
+                    "type": "object"
+                },
+                "roleArn": {
+                    "description": "The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon EKS to make calls to other AWS API operations on your behalf. For more information, see <a href=\"http://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html\">Amazon EKS Service IAM Role</a> in the <i> <i>Amazon EKS User Guide</i> </i>.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The desired Kubernetes version for your cluster. If you do not specify a value here, the latest version available in Amazon EKS is used.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "roleArn",
+                "resourcesVpcConfig"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
