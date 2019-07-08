@@ -1,6 +1,6 @@
 {
     "title": "Amazon Elastic Container Service for Kubernetes",
-    "description": "<p>Amazon Elastic Container Service for Kubernetes (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on AWS without needing to stand up or maintain your own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications. </p> <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you can use all the existing plugins and tooling from the Kubernetes community. Applications running on Amazon EKS are fully compatible with applications running on any standard Kubernetes environment, whether running in on-premises data centers or public clouds. This means that you can easily migrate any standard Kubernetes application to Amazon EKS without any code modification required.</p>",
+    "description": "Amazon Elastic Container Service for Kubernetes (Amazon EKS) is a managed\nservice that makes it easy for you to run Kubernetes on AWS without needing to\nstand up or maintain your own Kubernetes control plane. Kubernetes is an\nopen-source system for automating the deployment, scaling, and management of\ncontainerized applications. \n\nAmazon EKS runs up-to-date versions of the open-source Kubernetes software, so\nyou can use all the existing plugins and tooling from the Kubernetes community.\nApplications running on Amazon EKS are fully compatible with applications\nrunning on any standard Kubernetes environment, whether running in on-premises\ndata centers or public clouds. This means that you can easily migrate any\nstandard Kubernetes application to Amazon EKS without any code modification\nrequired.",
     "docsUrl": "https://aws.amazon.com/eks/",
     "url": "https://api.apis.guru/v2/specs/amazonaws.com/eks/2017-11-01/swagger.json",
     "envVars": {},
@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,7 +38,7 @@
     "actions": {
         "ListClusters": {
             "main": "./lib/actions/ListClusters.js",
-            "title": "Lists the Amazon EKS clusters in your AWS account in the specified Region.",
+            "title": "ListClusters",
             "description": "Lists the Amazon EKS clusters in your AWS account in the specified Region.",
             "fields": {
                 "verbose": {
@@ -55,8 +55,8 @@
         },
         "CreateCluster": {
             "main": "./lib/actions/CreateCluster.js",
-            "title": "<p>Creates an Amazon EKS control plane. </p> <p>The Amazon EKS control plane consists of control plane instances that run the Kubernetes software, like <code>etcd</code> and the API server. The control plane runs in an account managed by AWS, and the Kubernetes API is exposed via the Amazon EKS API server endpoint.</p> <p>Amazon EKS worker nodes run in your AWS account and connect to your cluster's control plane via the Kubernetes API server endpoint and a certificate file that is created for your cluster.</p> <p>The cluster control plane is provisioned across multiple Availability Zones and fronted by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic network interfaces in your VPC subnets to provide connectivity from the control plane instances to the worker nodes (for example, to support <code>kubectl exec</code>, <code>logs</code>, and <code>proxy</code> data flows).</p> <p>After you create an Amazon EKS cluster, you must configure your Kubernetes tooling to communicate with the API server and launch worker nodes into your cluster. For more information, see <a href=\"http://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html\">Managing Cluster Authentication</a> and <a href=\"http://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html\">Launching Amazon EKS Worker Nodes</a>in the <i>Amazon EKS User Guide</i>.</p>",
-            "description": "<p>Creates an Amazon EKS control plane. </p> <p>The Amazon EKS control plane consists of control plane instances that run the Kubernetes software, like <code>etcd</code> and the API server. The control plane runs in an account managed by AWS, and the Kubernetes API is exposed via the Amazon EKS API server endpoint.</p> <p>Amazon EKS worker nodes run in your AWS account and connect to your cluster's control plane via the Kubernetes API server endpoint and a certificate file that is created for your cluster.</p> <p>The cluster control plane is provisioned across multiple Availability Zones and fronted by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic network interfaces in your VPC subnets to provide connectivity from the control plane instances to the worker nodes (for example, to support <code>kubectl exec</code>, <code>logs</code>, and <code>proxy</code> data flows).</p> <p>After you create an Amazon EKS cluster, you must configure your Kubernetes tooling to communicate with the API server and launch worker nodes into your cluster. For more information, see <a href=\"http://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html\">Managing Cluster Authentication</a> and <a href=\"http://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html\">Launching Amazon EKS Worker Nodes</a>in the <i>Amazon EKS User Guide</i>.</p>",
+            "title": "CreateCluster",
+            "description": "Creates an Amazon EKS control plane. \n\nThe Amazon EKS control plane consists of control plane instances that run the\nKubernetes software, like etcd and the API server. The control plane runs in an\naccount managed by AWS, and the Kubernetes API is exposed via the Amazon EKS API\nserver endpoint.\n\nAmazon EKS worker nodes run in your AWS account and connect to your cluster's\ncontrol plane via the Kubernetes API server endpoint and a certificate file that\nis created for your cluster.\n\nThe cluster control plane is provisioned across multiple Availability Zones and\nfronted by an Elastic Load Balancing Network Load Balancer. Amazon EKS also\nprovisions elastic network interfaces in your VPC subnets to provide\nconnectivity from the control plane instances to the worker nodes (for example,\nto support kubectl exec, logs, and proxy data flows).\n\nAfter you create an Amazon EKS cluster, you must configure your Kubernetes\ntooling to communicate with the API server and launch worker nodes into your\ncluster. For more information, see Managing Cluster Authentication\n[http://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html] and \nLaunching Amazon EKS Worker Nodes\n[http://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html]in the \nAmazon EKS User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -72,8 +72,8 @@
         },
         "DeleteCluster": {
             "main": "./lib/actions/DeleteCluster.js",
-            "title": "<p>Deletes the Amazon EKS cluster control plane. </p> <note> <p>If you have active services in your cluster that are associated with a load balancer, you must delete those services before deleting the cluster so that the load balancers are deleted properly. Otherwise, you can have orphaned resources in your VPC that prevent you from being able to delete the VPC. For more information, see <a href=\"http://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html\">Deleting a Cluster</a> in the <i>Amazon EKS User Guide</i>.</p> </note>",
-            "description": "<p>Deletes the Amazon EKS cluster control plane. </p> <note> <p>If you have active services in your cluster that are associated with a load balancer, you must delete those services before deleting the cluster so that the load balancers are deleted properly. Otherwise, you can have orphaned resources in your VPC that prevent you from being able to delete the VPC. For more information, see <a href=\"http://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html\">Deleting a Cluster</a> in the <i>Amazon EKS User Guide</i>.</p> </note>",
+            "title": "DeleteCluster",
+            "description": "Deletes the Amazon EKS cluster control plane. \n\nIf you have active services in your cluster that are associated with a load\nbalancer, you must delete those services before deleting the cluster so that the\nload balancers are deleted properly. Otherwise, you can have orphaned resources\nin your VPC that prevent you from being able to delete the VPC. For more\ninformation, see Deleting a Cluster\n[http://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html] in the \nAmazon EKS User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -89,8 +89,8 @@
         },
         "DescribeCluster": {
             "main": "./lib/actions/DescribeCluster.js",
-            "title": "<p>Returns descriptive information about an Amazon EKS cluster.</p> <p>The API server endpoint and certificate authority data returned by this operation are required for <code>kubelet</code> and <code>kubectl</code> to communicate with your Kubernetes API server. For more information, see <a href=\"http://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html\">Create a kubeconfig for Amazon EKS</a>.</p> <note> <p>The API server endpoint and certificate authority data are not available until the cluster reaches the <code>ACTIVE</code> state.</p> </note>",
-            "description": "<p>Returns descriptive information about an Amazon EKS cluster.</p> <p>The API server endpoint and certificate authority data returned by this operation are required for <code>kubelet</code> and <code>kubectl</code> to communicate with your Kubernetes API server. For more information, see <a href=\"http://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html\">Create a kubeconfig for Amazon EKS</a>.</p> <note> <p>The API server endpoint and certificate authority data are not available until the cluster reaches the <code>ACTIVE</code> state.</p> </note>",
+            "title": "DescribeCluster",
+            "description": "Returns descriptive information about an Amazon EKS cluster.\n\nThe API server endpoint and certificate authority data returned by this\noperation are required for kubelet and kubectl to communicate with your\nKubernetes API server. For more information, see Create a kubeconfig for Amazon\nEKS [http://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html].\n\nThe API server endpoint and certificate authority data are not available until\nthe cluster reaches the ACTIVE state.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -106,7 +106,7 @@
         },
         "ListUpdates": {
             "main": "./lib/actions/ListUpdates.js",
-            "title": "Lists the updates associated with an Amazon EKS cluster in your AWS account, in the specified Region.",
+            "title": "ListUpdates",
             "description": "Lists the updates associated with an Amazon EKS cluster in your AWS account, in the specified Region.",
             "fields": {
                 "verbose": {
@@ -123,8 +123,8 @@
         },
         "UpdateClusterVersion": {
             "main": "./lib/actions/UpdateClusterVersion.js",
-            "title": "<p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster continues to function during the update. The response output includes an update ID that you can use to track the status of your cluster update with the <a>DescribeUpdate</a> API operation.</p> <p>Cluster updates are asynchronous, and they should finish within a few minutes. During an update, the cluster status moves to <code>UPDATING</code> (this status transition is eventually consistent). When the update is complete (either <code>Failed</code> or <code>Successful</code>), the cluster status moves to <code>Active</code>.</p>",
-            "description": "<p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster continues to function during the update. The response output includes an update ID that you can use to track the status of your cluster update with the <a>DescribeUpdate</a> API operation.</p> <p>Cluster updates are asynchronous, and they should finish within a few minutes. During an update, the cluster status moves to <code>UPDATING</code> (this status transition is eventually consistent). When the update is complete (either <code>Failed</code> or <code>Successful</code>), the cluster status moves to <code>Active</code>.</p>",
+            "title": "UpdateClusterVersion",
+            "description": "Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster\ncontinues to function during the update. The response output includes an update\nID that you can use to track the status of your cluster update with the \nDescribeUpdate API operation.\n\nCluster updates are asynchronous, and they should finish within a few minutes.\nDuring an update, the cluster status moves to UPDATING (this status transition\nis eventually consistent). When the update is complete (either Failed or \nSuccessful), the cluster status moves to Active.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -140,8 +140,8 @@
         },
         "DescribeUpdate": {
             "main": "./lib/actions/DescribeUpdate.js",
-            "title": "<p>Returns descriptive information about an update against your Amazon EKS cluster.</p> <p>When the status of the update is <code>Succeeded</code>, the update is complete. If an update fails, the status is <code>Failed</code>, and an error detail explains the reason for the failure.</p>",
-            "description": "<p>Returns descriptive information about an update against your Amazon EKS cluster.</p> <p>When the status of the update is <code>Succeeded</code>, the update is complete. If an update fails, the status is <code>Failed</code>, and an error detail explains the reason for the failure.</p>",
+            "title": "DescribeUpdate",
+            "description": "Returns descriptive information about an update against your Amazon EKS cluster.\n\nWhen the status of the update is Succeeded, the update is complete. If an update\nfails, the status is Failed, and an error detail explains the reason for the\nfailure.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
